@@ -27,6 +27,22 @@ mixin EditorImage on EditorState {
     );
   }
 
+  Positioned imageIsSaving() {
+    return const Positioned(
+      top: 15,
+      right: 15,
+      child: SizedBox(
+        width: 25,
+        height: 25,
+        child: CircularProgressIndicator(
+          backgroundColor: Colors.white,
+          strokeWidth: 2,
+          color: Colors.black,
+        ),
+      ),
+    );
+  }
+
   Stack editorImage(BuildContext context) {
     return Stack(
       children: [
@@ -104,6 +120,7 @@ mixin EditorImage on EditorState {
           ),
         ),
         editedBadge(),
+        if (savingImage == true) imageIsSaving(),
       ],
     );
   }

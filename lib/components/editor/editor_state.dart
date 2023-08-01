@@ -6,6 +6,8 @@ mixin EditorState<T extends ImageEditor> on State<T> {
 
   bool showEdited = true;
 
+  bool savingImage = false;
+
   double colorFilterIntensity = 0;
   Color colorFilterColor = Colors.white;
 

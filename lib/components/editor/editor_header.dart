@@ -9,6 +9,10 @@ import './editor_state.dart';
 
 mixin EditorHeader on EditorState {
   Future<Uint8List> captureWidget() async {
+    setState(() {
+      savingImage = true;
+    });
+
     final RenderRepaintBoundary boundary =
         globalKey.currentContext?.findRenderObject() as RenderRepaintBoundary;
 
@@ -18,6 +22,10 @@ mixin EditorHeader on EditorState {
         await image.toByteData(format: ui.ImageByteFormat.png);
 
     final Uint8List pngBytes = byteData!.buffer.asUint8List();
+
+    setState(() {
+      savingImage = false;
+    });
 
     return pngBytes;
   }
@@ -32,7 +40,6 @@ mixin EditorHeader on EditorState {
           message,
           style: const TextStyle(
             fontFamily: 'SFProDisplay',
-            fontSize: 18,
             fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
@@ -44,7 +51,13 @@ mixin EditorHeader on EditorState {
   }
 
   saveImage() async {
+    Navigator.pop(context);
+
     try {
+      setState(() {
+        savingImage = true;
+      });
+
       var result = await captureWidget();
 
       await ImageGallerySaver.saveImage(
@@ -52,9 +65,18 @@ mixin EditorHeader on EditorState {
         name: "monophoto_${getRandomString(7)}",
         quality: 100,
       );
-      showSnackbar(message: 'Image saved successfully!');
+
+      setState(() {
+        savingImage = false;
+      });
+
+      showSnackbar(message: 'Image saved');
     } catch (e) {
-      showSnackbar(message: 'Error saving image!', isError: true);
+      setState(() {
+        savingImage = false;
+      });
+
+      showSnackbar(message: 'Error saving image', isError: true);
     }
   }
 
@@ -75,13 +97,11 @@ mixin EditorHeader on EditorState {
       context: context,
       builder: (context) {
         return SizedBox(
-          height: 200,
+          height: 170,
           child: Column(
             children: [
               ListTile(
                 onTap: () async {
-                  Navigator.pop(context);
-
                   await saveImage();
                 },
                 trailing: const Icon(

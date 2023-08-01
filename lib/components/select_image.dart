@@ -16,7 +16,10 @@ class SelectImage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           'Monophoto',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.white,
+          ),
         ),
       ),
       body: Center(
