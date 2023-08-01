@@ -11,23 +11,54 @@ class Welcome extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       body: Container(
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 130),
+        width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/welcome.png'),
             fit: BoxFit.cover,
           ),
         ),
-        child: const Center(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Image.asset(
+              'assets/images/logo.png',
+              width: 70,
+            ),
+            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 100),
+              child: Text(
+                textAlign: TextAlign.center,
+                'Simple e objetivo. Edições rápidas práticas',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        child: FilledButton.tonal(
+        child: FilledButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+              Colors.white.withOpacity(0.10),
+            ),
+          ),
           onPressed: () {
             SharedPrefs().prefs.setBool('welcome', false);
 
             onPressed();
           },
-          child: const Text('Começar'),
+          child: const Text(
+            'Começar',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
     );
