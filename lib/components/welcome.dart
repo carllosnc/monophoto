@@ -32,7 +32,7 @@ class Welcome extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 100),
               child: Text(
                 textAlign: TextAlign.center,
-                'Simple e objetivo. Edições rápidas práticas',
+                'Simple e objetivo. Edições rápidas e práticas',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
