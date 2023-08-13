@@ -1,7 +1,6 @@
-import 'editor_state.dart';
-import 'package:flutter/material.dart';
+part of 'editor.dart';
 
-mixin EditorToggleButton on EditorState {
+extension EditorToggleButton on ImageEditorState {
   FloatingActionButton toggleButton() {
     return FloatingActionButton(
       shape: RoundedRectangleBorder(
@@ -9,9 +8,7 @@ mixin EditorToggleButton on EditorState {
       ),
       backgroundColor: const Color.fromARGB(255, 38, 38, 38),
       onPressed: () {
-        setState(() {
-          showEdited = !showEdited;
-        });
+        toggleEdited();
       },
       child: Icon(
         showEdited == true ? Icons.visibility : Icons.visibility_off,

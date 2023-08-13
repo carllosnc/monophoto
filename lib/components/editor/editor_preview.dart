@@ -1,9 +1,6 @@
-import 'dart:io';
+part of 'editor.dart';
 
-import 'package:flutter/material.dart';
-import 'editor_state.dart';
-
-mixin EditorImage on EditorState {
+extension EditorPreview on ImageEditorState {
   Positioned editedBadge() {
     return Positioned(
       top: 10,

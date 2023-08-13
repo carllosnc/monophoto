@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import './editor_state.dart';
-import '/components/components.dart';
+part of 'editor.dart';
 
-mixin EditorBottom on EditorState {
+extension EditorBottom on ImageEditorState {
   Container bottomNavigation() {
     return Container(
       color: Colors.white.withOpacity(0.12),
@@ -18,16 +16,8 @@ mixin EditorBottom on EditorState {
             initialIntensity: colorFilterIntensity,
             icon: Icons.format_color_fill,
             title: 'Color',
-            onSetIntensity: (double value) {
-              setState(() {
-                colorFilterIntensity = value;
-              });
-            },
-            onSetColor: (Color value) {
-              setState(() {
-                colorFilterColor = value;
-              });
-            },
+            onSetIntensity: setColorFilterIntensity,
+            onSetColor: setColorFilterColor,
           ),
 
           // soft ligth filter
@@ -36,16 +26,8 @@ mixin EditorBottom on EditorState {
             initialIntensity: softLightFilterIntensity,
             icon: Icons.lightbulb,
             title: 'Soft Light',
-            onSetIntensity: (double value) {
-              setState(() {
-                softLightFilterIntensity = value;
-              });
-            },
-            onSetColor: (Color value) {
-              setState(() {
-                softLightFilterColor = value;
-              });
-            },
+            onSetIntensity: setSoftLightFilterIntensity,
+            onSetColor: setSoftLightFilterColor,
           ),
 
           // saturation filter
@@ -54,16 +36,8 @@ mixin EditorBottom on EditorState {
             initialIntensity: saturationFilterIntensity,
             icon: Icons.contrast,
             title: 'Saturation',
-            onSetIntensity: (double value) {
-              setState(() {
-                saturationFilterIntensity = value;
-              });
-            },
-            onSetColor: (Color value) {
-              setState(() {
-                saturationFilterColor = value;
-              });
-            },
+            onSetIntensity: setSaturationFilterIntensity,
+            onSetColor: setSaturationFilterColor,
           ),
 
           FilterButton(
@@ -71,16 +45,8 @@ mixin EditorBottom on EditorState {
             initialIntensity: hueFilterIntensity,
             icon: Icons.colorize,
             title: 'Hue',
-            onSetIntensity: (double value) {
-              setState(() {
-                hueFilterIntensity = value;
-              });
-            },
-            onSetColor: (Color value) {
-              setState(() {
-                hueFilterColor = value;
-              });
-            },
+            onSetIntensity: setHueFilterIntensity,
+            onSetColor: setHueFilterColor,
           ),
 
           FilterButton(
@@ -88,16 +54,8 @@ mixin EditorBottom on EditorState {
             initialIntensity: overlayFilterIntensity,
             icon: Icons.layers,
             title: 'Overlay',
-            onSetIntensity: (double value) {
-              setState(() {
-                overlayFilterIntensity = value;
-              });
-            },
-            onSetColor: (Color value) {
-              setState(() {
-                overlayFilterColor = value;
-              });
-            },
+            onSetIntensity: setOverlayFilterIntensity,
+            onSetColor: setOverlayFilterColor,
           ),
 
           FilterButton(
@@ -105,16 +63,8 @@ mixin EditorBottom on EditorState {
             initialIntensity: multiplyFilterIntensity,
             icon: Icons.auto_awesome_motion_sharp,
             title: 'Multiply',
-            onSetIntensity: (double value) {
-              setState(() {
-                multiplyFilterIntensity = value;
-              });
-            },
-            onSetColor: (Color value) {
-              setState(() {
-                multiplyFilterColor = value;
-              });
-            },
+            onSetIntensity: setMultiplyFilterIntensity,
+            onSetColor: setMultiplyFilterColor,
           ),
         ],
       ),
