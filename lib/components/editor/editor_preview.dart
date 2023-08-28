@@ -45,65 +45,68 @@ extension EditorPreview on ImageEditorState {
       children: [
         SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-          child: Wrap(
-            direction: Axis.vertical,
-            verticalDirection: VerticalDirection.up,
-            children: [
-              if (showEdited == false)
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 100),
-                  width: MediaQuery.of(context).size.width,
-                  child: Image.file(
-                    File(widget.image.path),
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  ),
-                ),
-              if (showEdited == true)
-                RepaintBoundary(
-                  key: globalKey,
-                  child: AnimatedContainer(
+          child: InteractiveViewer(
+            maxScale: 5,
+            child: Wrap(
+              direction: Axis.vertical,
+              verticalDirection: VerticalDirection.up,
+              children: [
+                if (showEdited == false)
+                  AnimatedContainer(
                     duration: const Duration(milliseconds: 100),
                     width: MediaQuery.of(context).size.width,
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        multiplyFilterColor
-                            .withOpacity(multiplyFilterIntensity),
-                        BlendMode.multiply,
-                      ),
+                    child: Image.file(
+                      File(widget.image.path),
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                    ),
+                  ),
+                if (showEdited == true)
+                  RepaintBoundary(
+                    key: globalKey,
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 100),
+                      width: MediaQuery.of(context).size.width,
                       child: ColorFiltered(
                         colorFilter: ColorFilter.mode(
-                          overlayFilterColor
-                              .withOpacity(overlayFilterIntensity),
-                          BlendMode.overlay,
+                          multiplyFilterColor
+                              .withOpacity(multiplyFilterIntensity),
+                          BlendMode.multiply,
                         ),
                         child: ColorFiltered(
                           colorFilter: ColorFilter.mode(
-                            hueFilterColor.withOpacity(hueFilterIntensity),
-                            BlendMode.hue,
+                            overlayFilterColor
+                                .withOpacity(overlayFilterIntensity),
+                            BlendMode.overlay,
                           ),
                           child: ColorFiltered(
                             colorFilter: ColorFilter.mode(
-                              saturationFilterColor
-                                  .withOpacity(saturationFilterIntensity),
-                              BlendMode.saturation,
+                              hueFilterColor.withOpacity(hueFilterIntensity),
+                              BlendMode.hue,
                             ),
                             child: ColorFiltered(
                               colorFilter: ColorFilter.mode(
-                                softLightFilterColor
-                                    .withOpacity(softLightFilterIntensity),
-                                BlendMode.softLight,
+                                saturationFilterColor
+                                    .withOpacity(saturationFilterIntensity),
+                                BlendMode.saturation,
                               ),
                               child: ColorFiltered(
                                 colorFilter: ColorFilter.mode(
-                                  colorFilterColor
-                                      .withOpacity(colorFilterIntensity),
-                                  BlendMode.color,
+                                  softLightFilterColor
+                                      .withOpacity(softLightFilterIntensity),
+                                  BlendMode.softLight,
                                 ),
-                                child: Image.file(
-                                  File(widget.image.path),
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
+                                child: ColorFiltered(
+                                  colorFilter: ColorFilter.mode(
+                                    colorFilterColor
+                                        .withOpacity(colorFilterIntensity),
+                                    BlendMode.color,
+                                  ),
+                                  child: Image.file(
+                                    File(widget.image.path),
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                  ),
                                 ),
                               ),
                             ),
@@ -112,8 +115,8 @@ extension EditorPreview on ImageEditorState {
                       ),
                     ),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
         ),
         editedBadge(),
