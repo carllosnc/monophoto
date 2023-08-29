@@ -46,7 +46,8 @@ extension EditorPreview on ImageEditorState {
         SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: InteractiveViewer(
-            maxScale: 5,
+            maxScale: 3.0,
+            minScale: 1.0,
             child: Wrap(
               direction: Axis.vertical,
               verticalDirection: VerticalDirection.up,
