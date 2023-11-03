@@ -1,5 +1,4 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import '/notifiers/notifiers.dart';
 
 class SharedPrefs {
   static final SharedPrefs _sharedPrefs = SharedPrefs._internal();
@@ -14,17 +13,10 @@ class SharedPrefs {
   loadPreferences() async {
     prefs = await SharedPreferences.getInstance();
 
-    //get from shared preferences
-    final bool? lightTheme = prefs.getBool('lightTheme');
     final bool? welcome = prefs.getBool('welcome');
 
     if (welcome == null) {
       prefs.setBool('welcome', true);
-    }
-
-    // set theme to the theme notifier
-    if (lightTheme != null) {
-      ThemeNotifier().lightTheme.value = lightTheme;
     }
   }
 }
