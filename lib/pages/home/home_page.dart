@@ -14,6 +14,12 @@ class _HomePageState extends State<HomePage> {
   bool firstTime = SharedPrefs().prefs.getBool('welcome') ?? true;
   dynamic imageEdit;
 
+  removeImage() {
+    setState(() {
+      imageEdit = null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     if (firstTime) {
@@ -30,14 +36,7 @@ class _HomePageState extends State<HomePage> {
       return ImageEditor(
         image: imageEdit,
         onClean: () {
-          discardEdition(
-            context: context,
-            action: () {
-              setState(() {
-                imageEdit = null;
-              });
-            },
-          );
+          removeImage();
         },
       );
     }
