@@ -16,13 +16,13 @@ class ToggleEditedImage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(100),
       ),
-      backgroundColor: const Color.fromARGB(255, 38, 38, 38),
+      backgroundColor: showEdited == true ? const Color.fromARGB(255, 39, 39, 39) : Colors.red.shade700,
       onPressed: () {
         onToggleEdited();
       },
       child: Icon(
         showEdited == true ? Icons.visibility : Icons.visibility_off,
-        color: showEdited == true ? Colors.white : Colors.grey,
+        color: showEdited == true ? Colors.white : Colors.white,
       ),
     );
   }
