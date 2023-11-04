@@ -287,7 +287,7 @@ class ImageEditorState extends State<ImageEditor> {
         showEdited: showEdited,
       ),
       bottomNavigationBar: Container(
-        color: Colors.white.withOpacity(0.12),
+        color: Colors.black,
         height: 70,
         padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
         child: Row(
