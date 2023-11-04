@@ -101,7 +101,7 @@ class _ColorPickerState extends State<ColorPicker> {
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
                     margin: const EdgeInsets.all(2),
-                    width: selected == index ? 60 : 30,
+                    width: selectedColor == colors[index] ? 70 : 30,
                     decoration: BoxDecoration(
                       color: colors[index],
                       borderRadius: BorderRadius.circular(100),
