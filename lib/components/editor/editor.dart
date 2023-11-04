@@ -239,22 +239,22 @@ class ImageEditorState extends State<ImageEditor> {
                           child: ColorFiltered(
                             colorFilter: ColorFilter.mode(
                               overlayFilterColor.withOpacity(overlayFilterIntensity),
-                              BlendMode.multiply,
+                              BlendMode.overlay,
                             ),
                             child: ColorFiltered(
                               colorFilter: ColorFilter.mode(
                                 hueFilterColor.withOpacity(hueFilterIntensity),
-                                BlendMode.multiply,
+                                BlendMode.hue,
                               ),
                               child: ColorFiltered(
                                 colorFilter: ColorFilter.mode(
                                   saturationFilterColor.withOpacity(saturationFilterIntensity),
-                                  BlendMode.multiply,
+                                  BlendMode.saturation,
                                 ),
                                 child: ColorFiltered(
                                   colorFilter: ColorFilter.mode(
                                     softLightFilterColor.withOpacity(softLightFilterIntensity),
-                                    BlendMode.color,
+                                    BlendMode.softLight,
                                   ),
                                   child: ColorFiltered(
                                     colorFilter: ColorFilter.mode(
