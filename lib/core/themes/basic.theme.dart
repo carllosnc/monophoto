@@ -30,16 +30,16 @@ appTheme() => ThemeData(
           color: Colors.white,
           fontSize: 18,
         ),
-        backgroundColor: const Color.fromARGB(255, 79, 0, 0),
+        backgroundColor: const Color.fromARGB(255, 85, 0, 0),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(30),
         ),
       ),
       bottomSheetTheme: const BottomSheetThemeData(
         backgroundColor: Color.fromARGB(255, 25, 25, 25),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            top: Radius.circular(0),
+            top: Radius.circular(20),
           ),
         ),
       ),
