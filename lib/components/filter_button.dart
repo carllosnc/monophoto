@@ -56,7 +56,6 @@ class _FilterButtonState extends State<FilterButton> {
             return StatefulBuilder(
               builder: (BuildContext context, StateSetter setState) {
                 return Container(
-                  color: const Color.fromARGB(255, 32, 32, 32),
                   height: 180,
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(
