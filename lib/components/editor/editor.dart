@@ -206,14 +206,13 @@ class ImageEditorState extends State<ImageEditor> {
       ),
       body: Stack(
         children: [
-          SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          Positioned.fill(
             child: InteractiveViewer(
               maxScale: 3.0,
               minScale: 1.0,
+              constrained: true,
               child: Wrap(
                 direction: Axis.vertical,
-                verticalDirection: VerticalDirection.up,
                 children: [
                   if (showEdited == false)
                     AnimatedContainer(
