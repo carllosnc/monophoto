@@ -36,10 +36,10 @@ appTheme() => ThemeData(
         ),
       ),
       bottomSheetTheme: const BottomSheetThemeData(
-        backgroundColor: Color.fromARGB(255, 25, 25, 25),
+        backgroundColor: Color.fromARGB(255, 23, 23, 23),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20),
+            top: Radius.circular(0),
           ),
         ),
       ),
