@@ -42,9 +42,7 @@ class _FilterButtonState extends State<FilterButton> {
         offset: const Offset(-12, -20),
         isLabelVisible: widget.initialIntensity != 0,
         backgroundColor: widget.initialColor,
-        textColor: widget.initialColor.computeLuminance() > 0.5
-            ? Colors.black
-            : Colors.white,
+        textColor: widget.initialColor.computeLuminance() > 0.5 ? Colors.black : Colors.white,
         label: Text(widget.initialIntensity.toStringAsFixed(2)),
         child: Icon(widget.icon, color: Colors.white),
       ),
@@ -105,8 +103,7 @@ class _FilterButtonState extends State<FilterButton> {
                                 divisions: 100,
                                 activeColor: Colors.white,
                                 inactiveColor: Colors.white.withOpacity(0.2),
-                                label:
-                                    (currentIntensity.round() / 100).toString(),
+                                label: (currentIntensity.round() / 100).toString(),
                               ),
                             ),
                           ],

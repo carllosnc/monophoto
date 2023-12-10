@@ -207,25 +207,32 @@ class ImageEditorState extends State<ImageEditor> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: InteractiveViewer(
-              maxScale: 3.0,
-              minScale: 1.0,
-              constrained: true,
-              child: Wrap(
-                direction: Axis.vertical,
-                children: [
-                  if (showEdited == false)
-                    AnimatedContainer(
+            child: Wrap(
+              direction: Axis.vertical,
+              children: [
+                if (showEdited == false)
+                  Container(
+                    color: const Color.fromARGB(255, 18, 18, 18),
+                    height: double.infinity,
+                    child: AnimatedContainer(
                       duration: const Duration(milliseconds: 100),
                       width: MediaQuery.of(context).size.width,
-                      child: Image.file(
-                        File(widget.image.path),
-                        fit: BoxFit.cover,
-                        width: double.infinity,
+                      child: InteractiveViewer(
+                        maxScale: 5,
+                        minScale: 1,
+                        child: Image.file(
+                          File(widget.image.path),
+                          fit: BoxFit.contain,
+                          width: double.infinity,
+                        ),
                       ),
                     ),
-                  if (showEdited == true)
-                    RepaintBoundary(
+                  ),
+                if (showEdited == true)
+                  Container(
+                    color: const Color.fromARGB(255, 18, 18, 18),
+                    height: double.infinity,
+                    child: RepaintBoundary(
                       key: globalKey,
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 100),
@@ -260,10 +267,14 @@ class ImageEditorState extends State<ImageEditor> {
                                       colorFilterColor.withOpacity(colorFilterIntensity),
                                       BlendMode.color,
                                     ),
-                                    child: Image.file(
-                                      File(widget.image.path),
-                                      fit: BoxFit.cover,
-                                      width: double.infinity,
+                                    child: InteractiveViewer(
+                                      maxScale: 5,
+                                      minScale: 1,
+                                      child: Image.file(
+                                        File(widget.image.path),
+                                        fit: BoxFit.contain,
+                                        width: double.infinity,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -273,8 +284,8 @@ class ImageEditorState extends State<ImageEditor> {
                         ),
                       ),
                     ),
-                ],
-              ),
+                  ),
+              ],
             ),
           ),
           EditedBadge(showEdited: showEdited),
