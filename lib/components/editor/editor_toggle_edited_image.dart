@@ -12,11 +12,11 @@ class ToggleEditedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
+    return FloatingActionButton.small(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(100),
       ),
-      backgroundColor: showEdited == true ? const Color.fromARGB(255, 39, 39, 39) : Colors.red.shade700,
+      backgroundColor: showEdited == true ? Colors.green.shade700 : Colors.red.shade700,
       onPressed: () {
         onToggleEdited();
       },
