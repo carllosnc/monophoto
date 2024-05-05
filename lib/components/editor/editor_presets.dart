@@ -26,9 +26,9 @@ class _EdtiorPresetState extends State<EdtiorPreset> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(100),
       ),
-      backgroundColor: Colors.blue.shade700,
+      backgroundColor: Colors.blue.shade800,
       child: const Icon(
-        Icons.layers,
+        Icons.tune,
       ),
       onPressed: () {
         showModalBottomSheet(

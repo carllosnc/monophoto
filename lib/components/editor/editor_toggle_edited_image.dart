@@ -16,7 +16,7 @@ class ToggleEditedImage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(100),
       ),
-      backgroundColor: showEdited == true ? Colors.green.shade700 : Colors.red.shade700,
+      backgroundColor: showEdited == true ? Colors.green.shade800 : Colors.red.shade800,
       onPressed: () {
         onToggleEdited();
       },
