@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 appTheme() => ThemeData(
       scaffoldBackgroundColor: Colors.black,
@@ -36,7 +37,8 @@ appTheme() => ThemeData(
         ),
       ),
       bottomSheetTheme: const BottomSheetThemeData(
-        backgroundColor: Color.fromARGB(255, 23, 23, 23),
+        backgroundColor: Color.fromARGB(255, 30, 30, 30),
+        surfaceTintColor: Color.fromARGB(255, 30, 30, 30),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(0),
