@@ -7,13 +7,12 @@ import 'editor_actions.dart';
 
 import 'editor_back_button.dart';
 import 'editor_done.dart';
+import 'editor_filter.dart';
 import 'editor_loading.dart';
 import 'editor_reset_edition.dart';
 import 'editor_toggle_image.dart';
 import 'editor_state.dart';
 import 'editor_presets.dart';
-
-import '/components/components.dart';
 
 class ImageEditor extends StatefulWidget {
   final XFile image;

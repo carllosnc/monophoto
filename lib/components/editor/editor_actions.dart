@@ -3,14 +3,12 @@ import 'dart:ui' as ui;
 
 import 'package:share_plus/share_plus.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
-
-import '/core/core.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 import 'editor_snackbar.dart';
+import '/imports.dart';
 
 Future<Uint8List> captureWidget({
   required GlobalKey globalKey,

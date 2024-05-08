@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import '/components/components.dart';
+import '/imports.dart';
 
 class EditorPage extends StatefulWidget {
   final XFile image;

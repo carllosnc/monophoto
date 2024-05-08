@@ -1,6 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import '/components/components.dart';
+import '/imports.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({

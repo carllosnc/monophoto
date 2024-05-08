@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/components/components.dart';
+import 'editor_colorpicker.dart';
 
 class EditorFilter extends StatefulWidget {
   final IconData icon;
