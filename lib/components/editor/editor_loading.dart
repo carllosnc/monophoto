@@ -15,7 +15,7 @@ class EditorLoading extends StatelessWidget {
         height: 25,
         child: CircularProgressIndicator(
           backgroundColor: Colors.white,
-          strokeWidth: 2,
+          strokeWidth: 4,
           color: Colors.black,
         ),
       ),
