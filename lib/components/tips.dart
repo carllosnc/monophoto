@@ -16,7 +16,7 @@ class Tips extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              'Check these tips before you start, known the icons from the editor.',
+              'Check these tips before you start.',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.white.withOpacity(0.6),

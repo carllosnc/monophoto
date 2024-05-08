@@ -24,7 +24,7 @@ class SelectImage extends StatelessWidget {
         child: Tips(),
       ),
       bottomNavigationBar: Container(
-        color: Colors.white.withOpacity(0.1),
+        color: Colors.white.withOpacity(0.07),
         height: 130,
         child: Column(
           children: [

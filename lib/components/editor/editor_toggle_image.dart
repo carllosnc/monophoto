@@ -12,15 +12,16 @@ class EditorToggleImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton.small(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(100),
+    return IconButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(
+          showEdited == true ? Colors.green.shade700 : Colors.red.shade700,
+        ),
       ),
-      backgroundColor: showEdited == true ? Colors.green.shade800 : Colors.red.shade800,
       onPressed: () {
         onToggleEdited();
       },
-      child: Icon(
+      icon: Icon(
         showEdited == true ? Icons.visibility : Icons.visibility_off,
         color: showEdited == true ? Colors.white : Colors.white,
       ),
