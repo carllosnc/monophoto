@@ -2,10 +2,10 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'editor_actions.dart';
 
+import 'editor_back_button.dart';
 import 'editor_done.dart';
 import 'editor_loading.dart';
 import 'editor_reset_edition.dart';
@@ -36,13 +36,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
       backgroundColor: const Color.fromARGB(255, 18, 18, 18),
       key: UniqueKey(),
       appBar: AppBar(
-        //back button to home page
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () {
-            context.go('/');
-          },
-        ),
+        leading: const EditorBackButton(),
         surfaceTintColor: Colors.black,
         centerTitle: false,
         title: Text(
