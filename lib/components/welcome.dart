@@ -25,14 +25,14 @@ class Welcome extends StatelessWidget {
           children: [
             Image.asset(
               'assets/images/logo.png',
-              width: 70,
+              width: 100,
             ),
             const SizedBox(height: 20),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 100),
               child: Text(
                 textAlign: TextAlign.center,
-                'Simple e objetivo. Edições rápidas e práticas',
+                'Simple and objective, quick simple edits',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
