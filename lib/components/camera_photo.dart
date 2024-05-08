@@ -1,7 +1,7 @@
-import 'dart:developer';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class CameraPhoto extends StatefulWidget {
   final CameraDescription camera1;
@@ -22,6 +22,7 @@ class CameraPhotoState extends State<CameraPhoto> {
   late Future<void> _initializeControllerFuture;
   int _currentCamera = 1;
   bool _isLoading = false;
+  bool _cameraPermissionGranted = false;
 
   @override
   void initState() {
@@ -31,6 +32,8 @@ class CameraPhotoState extends State<CameraPhoto> {
       ResolutionPreset.ultraHigh,
     );
 
+    checkCameraPermission();
+
     _initializeControllerFuture = _controller.initialize();
   }
 
@@ -38,6 +41,15 @@ class CameraPhotoState extends State<CameraPhoto> {
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  checkCameraPermission() async {
+    if (!_cameraPermissionGranted) {
+      final permission = await Permission.camera.request();
+      if (permission.isGranted) {
+        _cameraPermissionGranted = true;
+      }
+    }
   }
 
   @override
@@ -77,6 +89,10 @@ class CameraPhotoState extends State<CameraPhoto> {
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
+            if (!_cameraPermissionGranted) {
+              return const PermissionDenied();
+            }
+
             return CameraPreview(_controller);
           } else {
             return const Center(
@@ -114,7 +130,27 @@ class CameraPhotoState extends State<CameraPhoto> {
 
             context.push('/editor', extra: image);
           } catch (e) {
-            log("Error: $e");
+            setState(() {
+              _isLoading = false;
+            });
+
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: const Text('Something went wrong'),
+                  content: Text(e.toString()),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('OK'),
+                    ),
+                  ],
+                );
+              },
+            );
           }
         },
         child: _isLoading
@@ -130,6 +166,46 @@ class CameraPhotoState extends State<CameraPhoto> {
                 color: Colors.black.withOpacity(0.3),
                 size: 50,
               ),
+      ),
+    );
+  }
+}
+
+class PermissionDenied extends StatelessWidget {
+  const PermissionDenied({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SizedBox(
+        width: 300,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.no_photography,
+              color: Colors.white.withOpacity(0.2),
+              size: 80,
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              textAlign: TextAlign.center,
+              'Camera permission is required to take a picture',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            const SizedBox(height: 20),
+            FilledButton.tonal(
+              onPressed: () {
+                openAppSettings();
+              },
+              child: const Text('Open settings'),
+            ),
+          ],
+        ),
       ),
     );
   }
