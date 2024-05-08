@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '/components/components.dart';
 
-class FilterButton extends StatefulWidget {
+class EditorFilter extends StatefulWidget {
   final IconData icon;
   final String title;
   final bool canEditColor;
@@ -12,7 +12,7 @@ class FilterButton extends StatefulWidget {
   final double initialIntensity;
   final Color initialColor;
 
-  const FilterButton({
+  const EditorFilter({
     super.key,
     required this.icon,
     required this.title,
@@ -25,10 +25,10 @@ class FilterButton extends StatefulWidget {
   });
 
   @override
-  State<FilterButton> createState() => _FilterButtonState();
+  State<EditorFilter> createState() => _EditorFilterState();
 }
 
-class _FilterButtonState extends State<FilterButton> {
+class _EditorFilterState extends State<EditorFilter> {
   late double currentIntensity;
   late Color currentColor;
 
@@ -118,7 +118,7 @@ class _FilterButtonState extends State<FilterButton> {
                         ),
                         const SizedBox(height: 25),
                         if (widget.canEditColor)
-                          ColorPicker(
+                          EditorColorPicker(
                             initialColor: currentColor,
                             onSelectedColor: (color) {
                               setState(() {

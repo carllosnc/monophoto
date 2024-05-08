@@ -58,7 +58,7 @@ saveImage({
     onSaved();
 
     if (context.mounted) {
-      showSnackbar(
+      editorSnackbar(
         message: 'Image saved',
         context: context,
       );
@@ -67,7 +67,7 @@ saveImage({
     onSaved();
 
     if (context.mounted) {
-      showSnackbar(
+      editorSnackbar(
         message: 'Error saving image',
         isError: true,
         context: context,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ResetEdition extends StatelessWidget {
+class EditorResetEdition extends StatelessWidget {
   final Function onReset;
 
-  const ResetEdition({
+  const EditorResetEdition({
     super.key,
     required this.onReset,
   });

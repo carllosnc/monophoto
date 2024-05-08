@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ToggleEditedImage extends StatelessWidget {
+class EditorToggleImage extends StatelessWidget {
   final Function onToggleEdited;
   final bool showEdited;
 
-  const ToggleEditedImage({
+  const EditorToggleImage({
     super.key,
     required this.onToggleEdited,
     required this.showEdited,

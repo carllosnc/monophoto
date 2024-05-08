@@ -9,7 +9,7 @@ import 'editor_actions.dart';
 import 'editor_done.dart';
 import 'editor_loading.dart';
 import 'editor_reset_edition.dart';
-import 'editor_toggle_edited_image.dart';
+import 'editor_toggle_image.dart';
 import 'editor_state.dart';
 import 'editor_presets.dart';
 
@@ -53,10 +53,10 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
           ),
         ),
         actions: [
-          ResetEdition(
+          EditorResetEdition(
             onReset: resetFilters,
           ),
-          EditionDone(
+          EditorDone(
             onSave: () {
               saveImage(
                 context: context,
@@ -159,7 +159,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
               ],
             ),
           ),
-          if (savingImage == true) const Loading(),
+          if (savingImage == true) const EditorLoading(),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -177,7 +177,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
                 Preset('Red', red),
               ],
             ),
-            ToggleEditedImage(
+            EditorToggleImage(
               onToggleEdited: toggleEdited,
               showEdited: showEdited,
             ),
@@ -193,7 +193,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             //darken filter
-            FilterButton(
+            EditorFilter(
               canEditColor: false,
               initialColor: darkenFilterColor,
               initialIntensity: darkenFilterIntensity,
@@ -212,7 +212,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
             ),
 
             //lighten filter
-            FilterButton(
+            EditorFilter(
               canEditColor: false,
               initialColor: lightenFilterColor,
               initialIntensity: lightenFilterIntensity,
@@ -231,7 +231,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
             ),
 
             //shadow filter
-            FilterButton(
+            EditorFilter(
               canEditColor: false,
               initialColor: shadowFilterColor,
               initialIntensity: shadowFilterIntensity,
@@ -250,7 +250,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
             ),
 
             //highlight filter
-            FilterButton(
+            EditorFilter(
               canEditColor: false,
               initialColor: highlightFilterColor,
               initialIntensity: highlightFilterIntensity,
@@ -269,7 +269,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
             ),
 
             //color filter
-            FilterButton(
+            EditorFilter(
               canEditColor: true,
               initialColor: colorFilterColor,
               initialIntensity: colorFilterIntensity,
@@ -288,7 +288,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
             ),
 
             //hue filter
-            FilterButton(
+            EditorFilter(
               canEditColor: true,
               initialColor: hueFilterColor,
               initialIntensity: hueFilterIntensity,
@@ -307,7 +307,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
             ),
 
             //blur filter
-            FilterButton(
+            EditorFilter(
               maxIntensity: 2,
               canEditColor: false,
               initialColor: Colors.transparent,

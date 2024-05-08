@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class ColorPicker extends StatefulWidget {
+class EditorColorPicker extends StatefulWidget {
   final Color initialColor;
   final Function(Color color) onSelectedColor;
 
-  const ColorPicker({
+  const EditorColorPicker({
     super.key,
     this.initialColor = Colors.white,
     required this.onSelectedColor,
   });
 
   @override
-  State<ColorPicker> createState() => _ColorPickerState();
+  State<EditorColorPicker> createState() => _EditorColorPickerState();
 }
 
-class _ColorPickerState extends State<ColorPicker> {
+class _EditorColorPickerState extends State<EditorColorPicker> {
   dynamic selected;
   late Color selectedColor;
 

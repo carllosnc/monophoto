@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class EditionDone extends StatelessWidget {
+class EditorDone extends StatelessWidget {
   final Function onSave;
   final Function onShare;
 
-  const EditionDone({
+  const EditorDone({
     super.key,
     required this.onSave,
     required this.onShare,

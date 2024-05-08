@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-void showSnackbar({required String message, bool isError = false, required BuildContext context}) {
+void editorSnackbar({
+  required String message,
+  bool isError = false,
+  required BuildContext context,
+}) {
   Color success = const Color.fromARGB(255, 6, 105, 9);
   Color error = Colors.red;
 
