@@ -1,65 +1,64 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import 'tips.dart';
 
 class SelectImage extends StatelessWidget {
-  final Function(XFile image) onSelectImage;
-
   const SelectImage({
     super.key,
-    required this.onSelectImage,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: const Text(
           'Monophoto',
           style: TextStyle(
-            fontSize: 18,
             color: Colors.white,
           ),
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(40),
-          child: Container(
-            alignment: Alignment.center,
-            width: double.infinity,
-            height: 300,
-            //border white
-            decoration: BoxDecoration(
-              color: Colors.black,
-              border: Border.all(
-                color: Colors.white.withOpacity(0.4),
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  iconSize: 60,
-                  padding: const EdgeInsets.all(20),
-                  icon: const Icon(Icons.image, color: Colors.white),
-                  onPressed: () async {
-                    final dynamic image = await ImagePicker().pickImage(
-                      source: ImageSource.gallery,
-                    );
+      body: const SingleChildScrollView(
+        child: Tips(),
+      ),
+      bottomNavigationBar: Container(
+        color: Colors.white.withOpacity(0.1),
+        height: 130,
+        child: Column(
+          children: [
+            ListTile(
+              trailing: const Icon(Icons.folder),
+              title: const Text('Select image from gallery'),
+              onTap: () async {
+                final dynamic image = await ImagePicker().pickImage(
+                  source: ImageSource.gallery,
+                );
 
-                    if (image != null) {
-                      onSelectImage(image);
-                    }
-                  },
-                ),
-                const SizedBox(height: 5),
-                const Text('Select image')
-              ],
+                if (image != null && context.mounted) {
+                  context.push('/editor', extra: image);
+                }
+              },
             ),
-          ),
+            Divider(
+              height: 1,
+              color: Colors.white.withOpacity(0.1),
+            ),
+            ListTile(
+              trailing: const Icon(Icons.camera_alt),
+              title: const Text('Select image from camera'),
+              onTap: () async {
+                final cameras = await availableCameras();
+
+                final firstCamera = cameras.first;
+
+                if (context.mounted) {
+                  context.push('/camera', extra: firstCamera);
+                }
+              },
+            )
+          ],
         ),
       ),
     );

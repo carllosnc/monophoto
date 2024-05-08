@@ -2,12 +2,12 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'editor_actions.dart';
 
 import 'editor_done.dart';
 import 'editor_loading.dart';
-import 'editor_remove_image.dart';
 import 'editor_reset_edition.dart';
 import 'editor_toggle_edited_image.dart';
 import 'editor_state.dart';
@@ -36,6 +36,13 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
       backgroundColor: const Color.fromARGB(255, 18, 18, 18),
       key: UniqueKey(),
       appBar: AppBar(
+        //back button to home page
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () {
+            context.go('/');
+          },
+        ),
         surfaceTintColor: Colors.black,
         centerTitle: false,
         title: Text(
@@ -43,13 +50,9 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
           style: const TextStyle(
             fontSize: 16,
             color: Colors.white,
-            fontWeight: FontWeight.w500,
           ),
         ),
         actions: [
-          RemoveImage(
-            onClean: widget.onClean,
-          ),
           ResetEdition(
             onReset: resetFilters,
           ),
@@ -171,6 +174,7 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
                 Preset('Solar', solar),
                 Preset('Rainy', rainy),
                 Preset('Greeny', greeny),
+                Preset('Red', red),
               ],
             ),
             ToggleEditedImage(

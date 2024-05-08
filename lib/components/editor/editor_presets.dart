@@ -22,12 +22,11 @@ class EdtiorPreset extends StatefulWidget {
 class _EdtiorPresetState extends State<EdtiorPreset> {
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton.small(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(100),
+    return IconButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.blue.shade800),
       ),
-      backgroundColor: Colors.blue.shade800,
-      child: const Icon(
+      icon: const Icon(
         Icons.tune,
       ),
       onPressed: () {
@@ -36,7 +35,7 @@ class _EdtiorPresetState extends State<EdtiorPreset> {
           barrierColor: Colors.transparent,
           builder: (context) {
             return SizedBox(
-              height: 230,
+              height: 330,
               child: Column(
                 children: [
                   Container(
@@ -54,7 +53,7 @@ class _EdtiorPresetState extends State<EdtiorPreset> {
                     ),
                   ),
                   SizedBox(
-                    height: 200,
+                    height: 300,
                     child: ListView.separated(
                       separatorBuilder: (context, index) => const Divider(
                         height: 1,

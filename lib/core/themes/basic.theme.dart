@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 appTheme() => ThemeData(
       scaffoldBackgroundColor: Colors.black,
@@ -13,6 +12,15 @@ appTheme() => ThemeData(
       colorSchemeSeed: Colors.red,
       fontFamily: 'SFProDisplay',
       iconTheme: const IconThemeData(color: Colors.white),
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        },
+      ),
+      listTileTheme: const ListTileThemeData(
+        iconColor: Colors.white,
+      ),
       sliderTheme: SliderThemeData(
         activeTrackColor: Colors.white.withOpacity(0.5),
         inactiveTrackColor: Colors.white.withOpacity(0.2),

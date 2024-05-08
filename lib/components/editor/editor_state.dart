@@ -78,7 +78,10 @@ mixin EditorEstateMixin<T extends StatefulWidget> on State<T> {
     });
   }
 
+  //------------------------------------------
   //presets
+  //------------------------------------------
+
   blackAndWhitePreset() {
     resetFilters();
 
@@ -128,6 +131,20 @@ mixin EditorEstateMixin<T extends StatefulWidget> on State<T> {
       colorFilterIntensity = 0.29;
       hueFilterColor = Colors.green.shade300;
       hueFilterIntensity = 0.18;
+    });
+  }
+
+  red() {
+    resetFilters();
+
+    setState(() {
+      darkenFilterIntensity = 0.12;
+      shadowFilterIntensity = 0.39;
+      highlightFilterIntensity = 0.06;
+      hueFilterColor = Colors.red.shade900;
+      hueFilterIntensity = 0.64;
+      colorFilterColor = Colors.red.shade900;
+      colorFilterIntensity = 0.11;
     });
   }
 }

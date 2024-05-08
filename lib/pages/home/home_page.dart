@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import '/components/components.dart';
 import '/core/core.dart';
 
@@ -12,13 +11,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool firstTime = SharedPrefs().prefs.getBool('welcome') ?? true;
-  dynamic imageEdit;
-
-  removeImage() {
-    setState(() {
-      imageEdit = null;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,19 +24,6 @@ class _HomePageState extends State<HomePage> {
       );
     }
 
-    if (imageEdit != null) {
-      return ImageEditor(
-        image: imageEdit,
-        onClean: () {
-          removeImage();
-        },
-      );
-    }
-
-    return SelectImage(onSelectImage: (XFile image) {
-      setState(() {
-        imageEdit = image;
-      });
-    });
+    return const SelectImage();
   }
 }
