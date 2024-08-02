@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
-import '/pages/pages.dart';
+import '/imports.dart';
 
 final router = GoRouter(
   routes: [
@@ -21,7 +21,7 @@ final router = GoRouter(
       builder: (context, state) {
         XFile imageFile = state.extra as XFile;
 
-        return EditorPage(image: imageFile);
+        return EditionPage(image: imageFile);
       },
     ),
   ],

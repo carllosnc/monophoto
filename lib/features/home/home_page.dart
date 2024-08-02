@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'components/welcome.dart';
+import 'components/select_image.dart';
 import '/imports.dart';
 
 class HomePage extends StatefulWidget {

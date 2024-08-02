@@ -32,7 +32,7 @@ class Welcome extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 100),
               child: Text(
                 textAlign: TextAlign.center,
-                'Simple and objective, quick simple edits',
+                'Color correction done right',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
@@ -46,7 +46,7 @@ class Welcome extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: FilledButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
+            backgroundColor: WidgetStateProperty.all<Color>(
               Colors.white.withOpacity(0.10),
             ),
           ),
@@ -56,7 +56,7 @@ class Welcome extends StatelessWidget {
             onPressed();
           },
           child: const Text(
-            'Começar',
+            'Start',
             style: TextStyle(color: Colors.white),
           ),
         ),

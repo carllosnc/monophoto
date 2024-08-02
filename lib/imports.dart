@@ -1,13 +1,7 @@
 // Pages
-export 'pages/home/home_page.dart';
-export 'pages/camera/camera_page.dart';
-export 'pages/editor/editor_page.dart';
-
-// Components
-export 'components/welcome.dart';
-export 'components/editor/editor.dart';
-export 'components/select_image.dart';
-export 'components/camera_photo.dart';
+export 'features/home/home_page.dart';
+export 'features/camera/camera_page.dart';
+export 'features/edition/edition_page.dart';
 
 // Core
 export 'core/themes/basic.theme.dart';
