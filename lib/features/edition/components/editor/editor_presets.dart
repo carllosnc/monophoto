@@ -24,7 +24,7 @@ class _EdtiorPresetState extends State<EdtiorPreset> {
   Widget build(BuildContext context) {
     return IconButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(Colors.blue.shade800),
+        backgroundColor: WidgetStateProperty.all(Colors.blue.shade800),
       ),
       icon: const Icon(
         Icons.tune,

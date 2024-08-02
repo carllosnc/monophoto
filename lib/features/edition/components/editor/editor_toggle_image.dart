@@ -14,7 +14,7 @@ class EditorToggleImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(
           showEdited == true ? Colors.green.shade700 : Colors.red.shade700,
         ),
       ),
