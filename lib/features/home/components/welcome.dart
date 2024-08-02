@@ -32,7 +32,7 @@ class Welcome extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 100),
               child: Text(
                 textAlign: TextAlign.center,
-                'Color correction done right',
+                'Color correction done right!',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
