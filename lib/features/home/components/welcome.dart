@@ -11,7 +11,7 @@ class Welcome extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       body: Container(
-        padding: const EdgeInsets.fromLTRB(0, 0, 0, 130),
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -25,40 +25,36 @@ class Welcome extends StatelessWidget {
           children: [
             Image.asset(
               'assets/images/logo.png',
-              width: 100,
+              width: 130,
             ),
             const SizedBox(height: 20),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 100),
+              padding: EdgeInsets.symmetric(horizontal: 40),
               child: Text(
                 textAlign: TextAlign.center,
-                'Color correction done right!',
+                'Color correction done right.',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
                 ),
               ),
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        child: FilledButton(
-          style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all<Color>(
-              Colors.white.withOpacity(0.10),
-            ),
-          ),
-          onPressed: () {
-            SharedPrefs().prefs.setBool('welcome', false);
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 150,
+              child: FilledButton.tonal(
+                onPressed: () {
+                  SharedPrefs().prefs.setBool('welcome', false);
 
-            onPressed();
-          },
-          child: const Text(
-            'Start',
-            style: TextStyle(color: Colors.white),
-          ),
+                  onPressed();
+                },
+                child: const Text(
+                  'Start',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
