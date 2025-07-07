@@ -163,7 +163,7 @@ class CameraPhotoState extends State<CameraPhoto> {
               )
             : Icon(
                 Icons.camera,
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
                 size: 50,
               ),
       ),
@@ -186,7 +186,7 @@ class PermissionDenied extends StatelessWidget {
           children: [
             Icon(
               Icons.no_photography,
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               size: 80,
             ),
             const SizedBox(height: 20),
