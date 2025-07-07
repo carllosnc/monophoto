@@ -39,7 +39,7 @@ class EditorDone extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
-                  Divider(color: Colors.white.withOpacity(0.1), height: 1),
+                  Divider(color: Colors.white.withValues(alpha: 0.1), height: 1),
                   ListTile(
                     contentPadding: const EdgeInsets.symmetric(horizontal: 30),
                     onTap: () async {
