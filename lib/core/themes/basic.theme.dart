@@ -6,7 +6,7 @@ appTheme() => ThemeData(
         backgroundColor: Colors.black,
         elevation: 0,
       ),
-      dividerColor: Colors.white.withOpacity(0.2),
+      dividerColor: Colors.white.withValues(alpha: 0.2),
       useMaterial3: true,
       brightness: Brightness.dark,
       colorSchemeSeed: Colors.red,
@@ -22,10 +22,10 @@ appTheme() => ThemeData(
         iconColor: Colors.white,
       ),
       sliderTheme: SliderThemeData(
-        activeTrackColor: Colors.white.withOpacity(0.5),
-        inactiveTrackColor: Colors.white.withOpacity(0.2),
+        activeTrackColor: Colors.white.withValues(alpha: 0.2),
+        inactiveTrackColor: Colors.white.withValues(alpha: 0.2),
         thumbColor: Colors.white,
-        overlayColor: Colors.white.withOpacity(0.2),
+        overlayColor: Colors.white.withValues(alpha: 0.2),
         trackHeight: 2,
         thumbShape: const RoundSliderThumbShape(
           enabledThumbRadius: 8,
@@ -34,7 +34,7 @@ appTheme() => ThemeData(
           overlayRadius: 16,
         ),
       ),
-      dialogTheme: DialogTheme(
+      dialogTheme: DialogThemeData(
         contentTextStyle: const TextStyle(
           color: Colors.white,
           fontSize: 18,
