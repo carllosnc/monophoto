@@ -2,7 +2,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:share_plus/share_plus.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -47,7 +47,7 @@ saveImage({
       onSaved: onSaved,
     );
 
-    await ImageGallerySaver.saveImage(
+    await ImageGallerySaverPlus.saveImage(
       result,
       name: "monophoto_${getRandomString(7)}",
       quality: 100,
