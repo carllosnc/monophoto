@@ -42,7 +42,7 @@ class _EditorFilterState extends State<EditorFilter> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white.withOpacity(0.0),
+      color: Colors.white.withValues(alpha: 0.0),
       child: IconButton(
         icon: Badge(
           offset: const Offset(-12, -20),
@@ -88,7 +88,7 @@ class _EditorFilterState extends State<EditorFilter> {
                                 child: Text(
                                   "Intensity",
                                   style: TextStyle(
-                                    color: Colors.white.withOpacity(0.5),
+                                    color: Colors.white.withValues(alpha: 0.2),
                                   ),
                                 ),
                               ),
@@ -109,7 +109,7 @@ class _EditorFilterState extends State<EditorFilter> {
                                   max: 100 * widget.maxIntensity,
                                   divisions: 100,
                                   activeColor: Colors.white,
-                                  inactiveColor: Colors.white.withOpacity(0.2),
+                                  inactiveColor: Colors.white.withValues(alpha: 0.2),
                                   label: (currentIntensity.round() / 100).toString(),
                                 ),
                               ),
