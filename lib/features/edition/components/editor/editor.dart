@@ -103,32 +103,32 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
                         ),
                         child: ColorFiltered(
                           colorFilter: ColorFilter.mode(
-                            hueFilterColor.withOpacity(hueFilterIntensity),
+                            hueFilterColor.withValues(alpha: hueFilterIntensity),
                             BlendMode.hue,
                           ),
                           child: ColorFiltered(
                             colorFilter: ColorFilter.mode(
-                              highlightFilterColor.withOpacity(highlightFilterIntensity),
+                              highlightFilterColor.withValues(alpha: highlightFilterIntensity),
                               BlendMode.overlay,
                             ),
                             child: ColorFiltered(
                               colorFilter: ColorFilter.mode(
-                                shadowFilterColor.withOpacity(shadowFilterIntensity),
+                                shadowFilterColor.withValues(alpha: shadowFilterIntensity),
                                 BlendMode.softLight,
                               ),
                               child: ColorFiltered(
                                 colorFilter: ColorFilter.mode(
-                                  colorFilterColor.withOpacity(colorFilterIntensity),
+                                  colorFilterColor.withValues(alpha: colorFilterIntensity),
                                   BlendMode.color,
                                 ),
                                 child: ColorFiltered(
                                   colorFilter: ColorFilter.mode(
-                                    lightenFilterColor.withOpacity(lightenFilterIntensity),
+                                    lightenFilterColor.withValues(alpha: lightenFilterIntensity),
                                     BlendMode.plus,
                                   ),
                                   child: ColorFiltered(
                                     colorFilter: ColorFilter.mode(
-                                      darkenFilterColor.withOpacity(darkenFilterIntensity),
+                                      darkenFilterColor.withValues(alpha: darkenFilterIntensity),
                                       BlendMode.multiply,
                                     ),
                                     child: InteractiveViewer(
