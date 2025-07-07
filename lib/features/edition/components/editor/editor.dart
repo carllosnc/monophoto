@@ -93,8 +93,11 @@ class ImageEditorState extends State<ImageEditor> with EditorEstateMixin {
                   RepaintBoundary(
                     key: globalKey,
                     child: AnimatedContainer(
+                      padding: const EdgeInsets.all(0),
+                      color: Colors.black,
                       duration: const Duration(milliseconds: 100),
                       width: MediaQuery.of(context).size.width,
+                      clipBehavior: Clip.antiAlias,
                       child: ImageFiltered(
                         imageFilter: ImageFilter.blur(
                           sigmaX: blurFilterIntensity,

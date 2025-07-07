@@ -88,7 +88,7 @@ class _EditorFilterState extends State<EditorFilter> {
                                 child: Text(
                                   "Intensity",
                                   style: TextStyle(
-                                    color: Colors.white.withValues(alpha: 0.2),
+                                    color: Colors.white.withValues(alpha: 0.6),
                                   ),
                                 ),
                               ),
